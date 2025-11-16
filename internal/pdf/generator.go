@@ -23,7 +23,7 @@ func NewGenerator() (*Generator, error) {
 }
 
 func (g *Generator) Generate(doc model.ActDocument) ([]byte, error) {
-	pdf := gofpdf.New("P", "mm", "A4", "")
+	pdf := gofpdf.New("L", "mm", "A4", "")
 	pdf.SetMargins(15, 15, 15)
 	pdf.AddPage()
 
@@ -54,7 +54,7 @@ func (g *Generator) Generate(doc model.ActDocument) ([]byte, error) {
 	pdf.SetFont(g.fontName, "", 10)
 
 	headers := []string{"Наименование работ", "Ед. изм.", "Кол-во", "Цена без НДС", "Сумма без НДС"}
-	colWidths := []float64{70, 20, 25, 35, 35}
+	colWidths := []float64{110, 25, 30, 45, 45}
 	drawTableRow(pdf, g.fontName, headers, colWidths, true)
 
 	row := []string{
